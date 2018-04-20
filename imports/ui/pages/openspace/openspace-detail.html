@@ -1,0 +1,37 @@
+<template name="openspaceDetail">
+    <div class="hide-on-small-and-down">
+        {{> openspaceEdit}}
+    </div>
+    <div class="hide-on-med-and-up">
+        {{#with openSpace}}
+        <h1>OpenSpace {{formatDate date}}</h1>
+        {{#each timeSlotId in timeSlotIds}}
+        {{#with timeSlot timeSlotId}}
+        <h2 class="center-align">{{start}} - {{end}} Uhr</h2>
+        {{/with}}
+        <div class="row">
+            {{#each topicsForTimeSlot timeSlotId}}
+            <div class="col s12">
+                {{>topicCard topic=this hideActions=true roomName=roomForId}}
+            </div>
+            {{/each}}
+        </div>
+        {{/each}}
+        {{/with}}
+    </div>
+    {{#if isInRole 'admin'}}
+    <div class="row">
+        {{#if openTopics}}
+        <h1>Offene Themen</h1>
+        <div class="topic-card-list">
+            {{#each openTopics}}
+            <div class="col s12 card-col">
+                {{>topicCard topic=this draggable=true}}
+            </div>
+            {{/each}}
+        </div>
+        {{/if}}
+    </div>
+    {{/if}}
+
+</template>

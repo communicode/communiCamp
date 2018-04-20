@@ -1,0 +1,24 @@
+<template name="accountsAdminPage">
+    {{#if isInRole 'admin'}}
+    <h1>Freischaltung</h1>
+    <div class="section">
+        <div class="row">
+            <div class="col s6">
+                <input type="text" id="emailHost" placeholder="@mailhost.de">
+            </div>
+            <div class="col s6">
+                <button class="waves-effect waves-light btn" id="addUserRolesByHost">freischalten</button>
+            </div>
+            <div class="col s12">
+                <p>Diese Funktion weißt allen Benutzern die Rolle <b>user</b> zu, deren Email-Host mit dem hier
+                    angegebenen Host übereinstimmt</p>
+            </div>
+        </div>
+    </div>
+
+    <h1>Nutzerverwaltung</h1>
+    <div class="section">
+        {{> accountsAdmin}}
+    </div>
+    {{/if}}
+</template>

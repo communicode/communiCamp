@@ -1,0 +1,49 @@
+<template name="topicCard">
+    <div class="card blue-grey darken-1 topic-card" draggable="{{draggable}}">
+        {{#with topic}}
+        {{#if notEquals _id undefined}}
+        <div>
+            {{#if votes}}
+            <span class="new badge green" data-badge-caption="votes">{{votes.length}}</span>
+            {{/if}}
+            {{#if importantMarks}}
+            <span class="new badge green" data-badge-caption="important">{{importantMarks.length}}</span>
+            {{/if}}
+        </div>
+        {{#if ../roomName}}
+        <div class="header white-text center-align">{{../roomName}}</div>
+        {{/if}}
+        <div class="card-content white-text">
+            <span class="card-title">{{title}}</span>
+            <p class="flow-text line-clamp topic-description">{{description}}</p>
+        </div>
+        <div class="context-menu-wrapper"></div>
+        {{#unless ../hideActions}}
+        <div class="card-action center-align">
+            <a class="waves-effect waves-teal btn-flat js-interest">
+                {{#if voted}}
+                <i class="material-icons" title="nicht mehr für dieses Thema abstimmen">favorite</i>
+                {{else}}
+                <i class="material-icons" title="für dieses Thema abstimmen">favorite_border</i>
+                {{/if}}
+            </a>
+            <a class="waves-effect waves-teal btn-flat js-important">
+                {{#if markedAsImportant}}
+                <i class="material-icons" title="nicht mehr als wichtig markieren">star</i>
+                {{else}}
+                <i class="material-icons" title="Als wichtig markieren">star_border</i>
+                {{/if}}
+            </a>
+            <a href="/topic/detail/{{_id}}" class="waves-effect waves-teal btn-flat"><i class="material-icons">more_vert</i></a>
+            {{#if isInRole 'admin'}}
+            <a class="js-open-context-menu waves-effect waves-teal btn-flat"><i class="material-icons">check</i></a>
+            {{/if}}
+        </div>
+        {{/unless}}
+        <div class="footer white-text">
+            <span class="topic-author">@{{#if owner.name}}{{owner.name}}{{else}}{{owner.username}}{{/if}}</span>
+        </div>
+        {{/if}}
+        {{/with}}
+    </div>
+</template>

@@ -1,0 +1,30 @@
+<template name="openspaceList">
+    <h1>Openspaces</h1>
+    {{#if openSpaces.count}}
+    <ul class="collection">
+        {{#each openSpaces}}
+        <li class="collection-item">
+            <a href="/openspace/detail/{{_id}}">
+                <div class="row">
+                    <div class="col s3 l2 black-text">
+                        <i class="material-icons left">{{#if equals status 'open'}}lock_open{{else}}lock{{/if}}</i>
+                        <strong>{{formatDate date}}</strong>
+                    </div>
+                    <div class="col s9 l10">
+                        {{#each topics}}
+                        <span class="chip truncate topic-chip">{{title}}</span>
+                        {{/each}}
+                    </div>
+                </div>
+            </a>
+        </li>
+        {{/each}}
+    </ul>
+    {{else}}
+    <p class="flow-text center-align">es gibt noch keine Openspaces...</p>
+    {{/if}}
+    {{#if isInRole 'admin'}}
+    <a href="/openspace/create" class="btn-floating btn-large waves-effect waves-light modal-trigger green add-button"><i
+            class="material-icons">add</i></a>
+    {{/if}}
+</template>

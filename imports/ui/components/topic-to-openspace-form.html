@@ -1,0 +1,22 @@
+<template name="addTopicToOpenspace">
+    <div class="card card-context-menu">
+        <div class="row">
+            {{#if rooms}}
+            <div class="col s12">
+                {{>formSelect options=rooms first="Raum" name="room"}}
+            </div>
+            {{/if}}
+            {{#if slots}}
+            <div class="col s12">
+                {{>formSelect options=slots first="Time slot" name="slot" properties="multiple"}}
+            </div>
+            {{/if}}
+            <div class="col s6 center-align">
+                <a class="waves-effect waves-light btn js-cancel red"><i class="material-icons">close</i></a>
+            </div>
+            <div class="col s6 center-align">
+                <a class="waves-effect waves-light btn js-add-to-openspace center-align"><i class="material-icons">check</i></a>
+            </div>
+        </div>
+    </div>
+</template>

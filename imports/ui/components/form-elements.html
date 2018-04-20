@@ -1,0 +1,20 @@
+<template name="formSelect">
+    <select name="{{name}}" {{properties}}>
+        <option value="" disabled="disabled" {{isSelected}}>{{#if first}}{{first}}{{else}}Bitte auswählen{{/if}}</option>
+        {{#each options}}
+        <option value="{{value}}" {{isSelected}}>{{name}}</option>
+        {{/each}}
+    </select>
+    {{#if label}}
+    <label>{{label}}</label>
+    {{/if}}
+</template>
+
+<template name="formDatepicker">
+    <input type="text" class="datepicker" name="date" data-date="{{date}}">
+    <label>Datum</label>
+</template>
+
+<template name="formTimepicker">
+    <input type="text" class="timepicker" name="time" value="{{value}}" placeholder="{{#if label}}{{label}}{{else}}Zeit{{/if}}">
+</template>

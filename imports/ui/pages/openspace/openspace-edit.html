@@ -1,0 +1,87 @@
+<template name="openspaceEdit">
+    <div class="row">
+
+        <div class="row">
+            <h1>Openspace {{formatDate openspace.date}}</h1>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <table class="openspace-table centered">
+                    <thead style="border:none;">
+                    <tr>
+                        <td width="120px">
+                            {{#if isInRole 'admin'}}
+                            <div class="topic-cell-item">
+                                <a class="btn-floating waves-effect waves-light right btn dropdown"
+                                   id="openspace-options-trigger"
+                                   data-activates="openspace-options"><i class="material-icons">edit</i>
+                                </a>
+                                <ul id="openspace-options" class="dropdown-content">
+                                    <li>
+                                        <a id="addRoom" class="green-text"><i class="material-icons">add</i>Raum</a>
+                                    </li>
+                                    <li>
+                                        <a id="addTimeSlot" class="green-text"><i class="material-icons">add</i>Time Slot</a>
+                                    </li>
+                                    <li>
+                                        <a id="removeAllTopics" class="red-text"><i class="material-icons">delete_forever</i>Alle Themen</a>
+                                    </li>
+                                    <li>
+                                        {{#if isOpen}}
+                                        <a id="close-openspace" href="#!" class="black-text"><i class="material-icons">lock</i>Abschließen</a>
+                                        {{else}}
+                                        <a id="open-openspace" href="#!" class="black-text"><i class="material-icons">lock_open</i>Öffnen</a>
+                                        {{/if}}
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li><a id="close-dropdown" href="#!" class="black-text"><i class="material-icons">close</i>Schließen</a></li>
+                                </ul>
+                            </div>
+                            <script>$('.dropdown').dropdown({constrainWidth: false});</script>
+                            {{/if}}
+
+                        </td>
+                        {{#each openspace.settings.rooms}}
+                        <td>
+                            <div class="topic-cell-item">
+                                <input class="js-room-input room-name-input" type="text" value="{{name}}" placeholder="Name">
+                                {{#if isInRole 'admin'}}
+                                <div class="remove-button">
+                                    <a class="btn-floating waves-effect waves-light red js-remove-room btn-mini"><i class="material-icons">remove</i></a>
+                                </div>
+                                {{/if}}
+                            </div>
+                        </td>
+                        {{/each}}
+                    </tr>
+                    </thead>
+
+                    {{#each openspace.settings.timeSlots}}
+
+                    <tr class="time-slot-row">
+                        <td>
+                            <div class="topic-cell-item">
+                                <div class="timepicker">
+                                    {{>formTimepicker id=id callback=updateStartTime value=start}}
+                                    -
+                                    {{>formTimepicker id=id callback=updateEndTime value=end}}
+                                </div>
+                                {{#if isInRole 'admin'}}
+                                <div class="remove-button">
+                                    <a class="btn-floating waves-effect waves-light red js-remove-timeslot btn-mini"><i class="material-icons">remove</i></a>
+                                </div>
+                                {{/if}}
+                            </div>
+                        </td>
+
+                        {{>topicCells openspace=openspace timeSlot=this}}
+
+                    </tr>
+                    {{/each}}
+                </table>
+            </div>
+        </div>
+
+    </div>
+</template>

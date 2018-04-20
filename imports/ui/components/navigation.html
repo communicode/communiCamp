@@ -1,0 +1,46 @@
+<template name="navigation">
+    <ul class="side-nav section-padding" id="mobile-nav">
+        {{#if openspace}}
+        <li class="{{isActive 'openSpaceDetail'}}"><a href="/openspace/detail/{{openspace._id}}">Openspace - {{formatDate openspace.date}}</a></li>
+        {{/if}}
+        <li class="{{isActive 'openTopicList'}}"><a href="/topic/list/open">Offene Themen</a></li>
+        <li class="{{isActive 'openSpaces'}}"><a href="/openspace/list">Openspaces</a></li>
+        <li class="{{isActive 'topicList'}}"><a href="/topic/list">Themen</a></li>
+        <li class="divider"></li>
+        <li class="{{isActive 'profile'}}"><a href="/profile">Profil</a></li>
+        {{#if isInRole 'admin'}}
+        <li class="{{isActive 'accountsAdmin'}}"><a href="/accounts-admin">Nutzerverwaltung</a></li>
+        <li class="{{isActive 'openSpaceSettings'}}"><a href="/opensapce-settings">Openspace Einstellungen</a></li>
+        {{/if}}
+        <li class="divider"></li>
+        <li><a id="logoutBtn">Logout</a></li>
+    </ul>
+    <div class="navbar-fixed">
+        <ul id="optionsDropDown" class="dropdown-content">
+            <li class="{{isActive 'profile'}}"><a href="/profile">Profil</a></li>
+            {{#if isInRole 'admin'}}
+            <li class="{{isActive 'accountsAdmin'}}"><a href="/accounts-admin">Nutzerverwaltung</a></li>
+            <li class="{{isActive 'openSpaceSettings'}}"><a href="/opensapce-settings">Openspace Einstellungen</a></li>
+            {{/if}}
+            <li class="divider"></li>
+            <li><a id="logoutBtn">Logout</a></li>
+        </ul>
+        <nav class="white">
+            <div class="nav-wrapper">
+                <a href="#" data-activates="mobile-nav" class="button-collapse green-text"><i class="material-icons">menu</i></a>
+                <ul class="left hide-on-med-and-down">
+                    {{#if openspace}}
+                    <li class="{{isActive 'openSpaceDetail'}}"><a href="/openspace/detail/{{openspace._id}}">Openspace - {{formatDate openspace.date}}</a></li>
+                    {{/if}}
+                    <li class="{{isActive 'openTopicList'}}"><a href="/topic/list/open">Offene Themen</a></li>
+                    <li class="{{isActive 'openSpaceList'}}"><a href="/openspace/list">Openspaces</a></li>
+                    <li class="{{isActive 'topicList'}}"><a href="/topic/list">Themen</a></li>
+                    <li><a class="dropdown-button" href="#!" data-activates="optionsDropDown"><i class="material-icons">more_vert</i></a></li>
+                </ul>
+                <div class="right">
+                    {{>brand}}
+                </div>
+            </div>
+        </nav>
+    </div>
+</template>

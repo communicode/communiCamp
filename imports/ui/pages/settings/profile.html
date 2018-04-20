@@ -1,0 +1,12 @@
+<template name="userSettings">
+    <h1>Einstellungen</h1>
+    <p class="flow-text">
+        Benutzer: <strong>{{currentUser.username}}</strong>
+    </p>
+    {{#if isInRole 'admin'}}
+    <h2>Votes zurücksetzen</h2>
+    <button class="btn js-reset-votes">zurücksetzen</button>
+    <p>setzt die Votes für alle offene Themen zurück</p>
+    {{/if}}
+    {{>changePassword}}
+</template>

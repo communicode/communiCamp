@@ -1,0 +1,35 @@
+<template name="containerLayout">
+    <body>
+    {{#if currentUser}}
+    {{>navigation}}
+    <div class="container">
+        {{>Template.dynamic template=content}}
+        <div id="modal-wrapper"></div>
+    </div>
+    {{else}}
+    sorry, bitte logge lade die Seite neu
+    {{/if}}
+    </body>
+</template>
+<template name="loginLayout">
+    <body>
+    <div class="container">
+        {{>Template.dynamic template=content}}
+        <div id="modal-wrapper"></div>
+    </div>
+    </body>
+</template>
+<template name="layout">
+    <body>
+    {{#if currentUser}}
+    {{>navigation}}
+    {{/if}}
+    {{>Template.dynamic template=content}}
+    <div id="modal-wrapper"></div>
+    </body>
+</template>
+
+<template name="addButton">
+    <a id="{{buttonId}}" href="#{{targetModalId}}" class="btn-floating btn-large waves-effect waves-light modal-trigger green add-button"><i
+            class="material-icons">add</i></a>
+</template>

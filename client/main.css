@@ -1,0 +1,204 @@
+nav {
+    box-shadow: none;
+}
+
+.navbar-fixed {
+    z-index: 2000;
+}
+
+nav .nav-wrapper ul li a {
+    color: #757575 !important;
+}
+
+.side-nav {
+    z-index: 2009;
+}
+
+.site-branding {
+    display: block;
+    box-sizing: border-box;
+    width: 200px;
+    margin: 15px;
+    float: left;
+    position: relative;
+}
+
+.site-branding svg {
+    width: 100%;
+    height: auto;
+    margin: 0 0 15px;
+}
+
+.add-button {
+    position: fixed;
+    bottom: 12px;
+    right: 12px;
+}
+
+#topicListOptions .switch {
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+h1 {
+    font-size: 2rem;
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.75rem;
+}
+
+.topic-card, .card-context-menu {
+    background-color: white;
+}
+
+.card-content {
+    cursor: pointer;
+}
+
+@media only screen and (min-width: 600px) {
+    .topic-card-list .col.card-col {
+        width: 345px !important;
+    }
+}
+
+.topic-card .card-action a {
+    margin-right: 0 !important;
+    padding: 0px 15px;
+}
+
+td.time-axis {
+    width: 50px;
+}
+
+.section-padding {
+    padding-top: 12px;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.topic-card .topic-description {
+    overflow: hidden;
+    font-size: 1.25rem;
+    height: 80px;
+}
+
+.topic-card .footer {
+    border-top: 1px solid rgba(160, 160, 160, 0.2);
+    padding: 5px 24px;
+}
+
+.topic-card .header {
+    border-bottom: 1px solid rgba(160, 160, 160, 0.2);
+    padding: 5px 24px;
+}
+
+.topic-card .owner {
+    padding-top: 10px;
+}
+
+.line-clamp {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.card-title {
+    overflow: hidden;
+    height: 32px;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.card-context-menu {
+    position: absolute;
+    z-index: 999;
+    padding: 10px 10px 0px 10px;
+}
+
+.openspace-table input {
+    width: 45px !important;
+    text-align: center;
+    margin: 0 !important;
+    border: none !important;
+}
+
+.openspace-table .room-name-input {
+    width: 100% !important;
+
+}
+
+.btn-mini {
+    width: 15px;
+    height: 15px;
+    line-height: 15px;
+}
+
+.btn-mini i {
+    line-height: 15px;
+    font-size: 0.9rem;
+}
+
+.topic-cell {
+    position: relative;
+}
+
+.topic-cell a.dropdown {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.topic-cell-item {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.openspace-table {
+    table-layout: fixed;
+}
+
+.openspace-table td {
+    height: 50px;
+    padding: 6px;
+}
+
+.openspace-table .topic-title {
+    display: block;
+    font-weight: bold;
+}
+
+.topic-card .topic-author {
+    display: inline-block;
+    font-weight: lighter;
+}
+
+.dropdown-content {
+    width: 200px;
+}
+
+.topic-chip {
+    max-width: 100%;
+}
+
+.tap-target-content p {
+    letter-spacing: 1px;
+    font-size: 1.1rem;
+}
+
+.timepicker {
+    text-align: center;
+}
+
+.remove-button {
+    text-align: center;
+}
+
+.hover {
+    background-color: #90ba1e;
+}

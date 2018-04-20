@@ -1,0 +1,35 @@
+<template name="register">
+    <div class="row">
+        <div class=" col s12 m6 l4 offset-m3 offset-l4">
+            {{>brand}}
+        </div>
+    </div>
+    <div class="row">
+        <form id="signupForm" class=" col s12 m6 l4 offset-m3 offset-l4">
+
+            <label for="email">Email</label>
+            <input id="email" type="email" required placeholder="Email"/>
+
+            <label for="firstname">Firstname</label>
+            <input id="firstname" name="firstname" type="text" required placeholder="firstname"/>
+
+            <label for="lastname">Lastname</label>
+            <input id="lastname" name="lastname" type="text" required placeholder="lastname"/>
+
+            <label for="password">Password</label>
+            <input id="password" type="password" class="form-control js-validate-not-empty" required placeholder="Password"/>
+            <label for="password-repetition">Password repetition</label>
+            <input id="password-repetition" type="password" class="form-control js-validate-not-empty" required placeholder="Password"/>
+
+            <div class="row center">
+                <button type="submit" class="waves-effect waves-light btn">sign up</button>
+            </div>
+
+        </form>
+
+    </div>
+
+    <div class="row center m-t-10">
+        <a href="/login">or login</a>
+    </div>
+</template>

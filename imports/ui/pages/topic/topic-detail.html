@@ -1,0 +1,38 @@
+<template name="topicDetail">
+    {{#with topic}}
+    {{#if deletable}}<a class="waves-effect waves-light btn-floating js-cancel red right" id="removeTopic"><i
+        class="material-icons">close</i></a>{{/if}}
+    <h1>{{title}}</h1>
+    <div class="row">
+        <div class="col s12">
+            Erstellt am: {{formatDate createdAt}} von {{owner.name}}
+            <p class="flow-text">{{topic.description}}</p>
+        </div>
+    </div>
+    <h2>Notizen</h2>
+    <div class="row">
+        {{#each comments}}
+        <div class="col s12">
+            {{#if owner.name}}<strong>{{owner.name}}</strong> am {{formatDate createdAt}}:<br>{{/if}}
+            <p class="flow-text" style="padding-left: 15px">
+                {{text}}
+            </p>
+        </div>
+        {{/each}}
+    </div>
+    {{/with}}
+    <div class="row">
+        <div class="col s12">
+            <form id="addComment">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="commentText" class="materialize-textarea"></textarea>
+                        <label for="commentText">neue Notiz</label>
+                    </div>
+                </div>
+                <button type="submit" class="waves-effect waves-light btn">Speichern</button>
+            </form>
+        </div>
+    </div>
+
+</template>

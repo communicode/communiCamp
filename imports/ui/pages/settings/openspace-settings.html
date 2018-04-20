@@ -1,0 +1,39 @@
+<template name="openspaceSettings">
+    <h1>Openspace Einstellungen</h1>
+    <h2>Timeslots</h2>
+    {{#each currentUser.profile.settings.openspace.timeSlots}}
+    <div class="row">
+        <div class="col s4">{{>formTimepicker id=id callback=updateStartTime value=start}}</div>
+        <div class="col s4">{{>formTimepicker id=id callback=updateEndTime value=end}}</div>
+        <div class="col">
+            <a class="btn-floating waves-effect waves-light red js-remove-timeslot"><i class="material-icons">remove</i></a>
+        </div>
+    </div>
+    {{/each}}
+    <div class="row">
+        <div class="col s12">
+            <p>
+                <a id="addTimeSlot" class="btn-floating btn-large waves-effect waves-light green"><i class="material-icons">add</i></a>
+            </p>
+        </div>
+    </div>
+
+    <h2>Räume</h2>
+    {{#each currentUser.profile.settings.openspace.rooms}}
+    <div class="row">
+        <div class="col s6 input-field">
+            <input class="js-room-input" type="text" value="{{name}}" placeholder="Name">
+        </div>
+        <div class="col">
+            <a class="btn-floating waves-effect waves-light red js-remove-room"><i class="material-icons">remove</i></a>
+        </div>
+    </div>
+    {{/each}}
+    <div class="row">
+        <div class="col s12">
+            <p>
+                <a id="addRoom" class="btn-floating btn-large waves-effect waves-light green"><i class="material-icons">add</i></a>
+            </p>
+        </div>
+    </div>
+</template>

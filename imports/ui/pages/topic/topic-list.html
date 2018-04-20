@@ -1,0 +1,22 @@
+<template name="topicList">
+    <h1>Alle Themen</h1>
+
+    <ul class="collection">
+        {{#each topics}}
+        <li class="collection-item">
+            <a href="/topic/detail/{{_id}}">
+                <div class="row">
+                    <div class="col s3 l2 black-text">
+                        <i class="material-icons left">{{#if equals status 'open'}}lock_open{{else}}lock{{/if}}</i>
+                        <strong>{{formatDate createdAt}}</strong>
+                    </div>
+                    <div class="col s9 l10">
+                        {{title}}
+                    </div>
+                </div>
+            </a>
+        </li>
+        {{/each}}
+    </ul>
+
+</template>

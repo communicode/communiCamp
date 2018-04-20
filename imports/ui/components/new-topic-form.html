@@ -1,0 +1,25 @@
+<template name="newTopicForm">
+
+    {{>addButton buttonId='openNewTopicModal' targetModalId='newTopicModal'}}
+
+    <!-- Modal Structure -->
+    <div id="newTopicModal" class="modal bottom-sheet">
+        <div class="modal-content">
+            <form>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input type="text" name="title" placeholder="neues Thema">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="description" name="description" class="materialize-textarea" placeholder="Beschreibung"></textarea>
+                    </div>
+                </div>
+
+                <button class="waves-effect waves-light btn" type="submit">ok</button>
+            </form>
+        </div>
+    </div>
+
+</template>

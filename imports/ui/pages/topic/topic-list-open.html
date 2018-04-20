@@ -1,0 +1,19 @@
+<template name="openTopicList">
+    <h1>Themen</h1>
+    <div class="row">
+        {{#if topics.count}}
+        <div class="topic-card-list">
+            {{#each topics}}
+            <div class="col s12 card-col">
+                {{>topicCard topic=this}}
+            </div>
+            {{/each}}
+        </div>
+        {{else}}
+        <div class="col s12">
+            <p class="flow-text center-align">Es gibt momentan keine unbesprochenen Themen.<br> Sei der erste und leg ein Thema an!</p>
+        </div>
+        {{/if}}
+    </div>
+    {{> newTopicForm}}
+</template>

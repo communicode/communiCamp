@@ -1,0 +1,33 @@
+<template name="topicCells">
+    {{#each room in openspace.settings.rooms}}
+    {{#with topic openspace timeSlot.id room.id}}
+    {{>topicCell topic=this openspace=../openspace timeSlot=../timeSlot.id room=room.id}}
+    {{/with}}
+    {{/each}}
+</template>
+
+<template name="topicCell">
+    <td class="topic-cell">
+
+        <div class="topic-cell-item" draggable="{{#if isInRole 'admin'}}true{{else}}false{{/if}}">
+            {{>topicCard topic=topic hideActions=true}}
+        </div>
+        {{#if isInRole 'admin'}}
+        {{#if notEquals topic._id undefined}}
+        <a class="btn-floating waves-effect waves-light btn-mini dropdown"
+           id="dropdown-trigger-{{room}}-{{timeSlot}}"
+           data-activates="dropdown-options-{{room}}-{{timeSlot}}"><i class="material-icons">menu</i>
+        </a>
+        <ul id="dropdown-options-{{room}}-{{timeSlot}}" class="dropdown-content">
+            <li><a id="add-slot" href="#!" class="green-text"><i class="material-icons">add</i>Weiterer Slot</a></li>
+            <li><a id="remove-slot" href="#!" data-timeslot="{{timeSlot}}" class="red-text remove-slot"><i class="material-icons">delete</i>Slot
+                freigeben</a></li>
+            <li class="divider"></li>
+            <li><a id="close-dropdown" href="#!" class="black-text"><i class="material-icons">close</i>Schließen</a></li>
+        </ul>
+        <script>$('#dropdown-trigger-{{room}}-{{timeSlot}}').dropdown({constrainWidth: false})</script>
+        {{/if}}
+        {{/if}}
+
+    </td>
+</template>
